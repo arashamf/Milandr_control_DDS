@@ -37,8 +37,8 @@
 #define HSE_ON_ATTEMPTS				15
 #define __USE_DBG
 //#define __USE_IWDG
-#define USE_MDR1986VE1T  
-
+//#define USE_MDR1986VE1T  
+#define USE_MDR1986VE9x
 #define ON 	1
 #define OFF 0
 

@@ -33,23 +33,23 @@ void SetBiLED( const TBiLED *pBiLed, TBiLEDColor Color )
 	switch( Color )
 	{
 		case LED_BLACK: //бесцветный
-			PORT_ResetBits( pBiLed->Red.PORTx, pBiLed->Red.PORT_Pin );
-			PORT_ResetBits( pBiLed->Green.PORTx, pBiLed->Green.PORT_Pin );
+		//	PORT_ResetBits( pBiLed->Red.PORTx, pBiLed->Red.PORT_Pin );
+		//	PORT_ResetBits( pBiLed->Green.PORTx, pBiLed->Green.PORT_Pin );
 			break;
 
 		case LED_GREEN: //зелёный
-			PORT_SetBits( pBiLed->Red.PORTx, pBiLed->Red.PORT_Pin );
-			PORT_ResetBits( pBiLed->Green.PORTx, pBiLed->Green.PORT_Pin );
+		//	PORT_SetBits( pBiLed->Red.PORTx, pBiLed->Red.PORT_Pin );
+		//	PORT_ResetBits( pBiLed->Green.PORTx, pBiLed->Green.PORT_Pin );
 			break;
 
 		case LED_RED: //красный
-			PORT_ResetBits( pBiLed->Red.PORTx, pBiLed->Red.PORT_Pin );
-			PORT_SetBits( pBiLed->Green.PORTx, pBiLed->Green.PORT_Pin );
+		//	PORT_ResetBits( pBiLed->Red.PORTx, pBiLed->Red.PORT_Pin );
+		//	PORT_SetBits( pBiLed->Green.PORTx, pBiLed->Green.PORT_Pin );
 			break;
 
 		case LED_YELLOW: //жёлтый
-			PORT_SetBits( pBiLed->Red.PORTx, pBiLed->Red.PORT_Pin );
-			PORT_SetBits( pBiLed->Green.PORTx, pBiLed->Green.PORT_Pin );
+		//	PORT_SetBits( pBiLed->Red.PORTx, pBiLed->Red.PORT_Pin );
+		//	PORT_SetBits( pBiLed->Green.PORTx, pBiLed->Green.PORT_Pin );
 			break;
 	}
 }
@@ -87,8 +87,9 @@ static void init_pin( const TPortPin *PortPin )
 //---------------------------инициализация пинов управления светодиодом---------------------------//
 static void InitBiLED( const TBiLED *pBiLed )  
 {
-	init_pin( &pBiLed->Red );
-	init_pin( &pBiLed->Green );
+	init_pin( &pBiLed->Green_left );
+	init_pin( &pBiLed->Green_center );
+	init_pin( &pBiLed->Green_right );
 }
 
 //--------------------------инициализация пинов связи с DDS-генератором--------------------------//

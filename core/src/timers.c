@@ -23,7 +23,7 @@ static void init_timer_delay (void)
 
 	TIMER_BRGInit(MDR_TIMER2, TIMER_HCLKdiv1);	//инициализаци€ тактовой шины таймера с предделителем
 
-	TIMER_CntInitStructure.TIMER_Prescaler				= 4 - 1; // 20 ћ√ц
+	TIMER_CntInitStructure.TIMER_Prescaler				= 4 - 1; // 10 ћ√ц
 	TIMER_CntInitStructure.TIMER_Period						= 8-1;	// TIMERx->ARR
 	TIMER_CntInitStructure.TIMER_CounterMode			= TIMER_CntMode_ClkFixedDir;
 	TIMER_CntInitStructure.TIMER_CounterDirection	= TIMER_CntDir_Up;	 
@@ -52,7 +52,7 @@ void delay_us (uint16_t delay)
 	TIMER_CntInit(MDR_TIMER2, &TIMER_CntInitStructure);
 	
 	TIMER_ClearFlag(MDR_TIMER2, TIMER_STATUS_CNT_ARR); // сброс флага обновлени€	*/
-	TIMER_SetCntAutoreload(MDR_TIMER2, (delay*10-1));
+	TIMER_SetCntAutoreload(MDR_TIMER2, (delay*20-1));
 	
 	TIMER_SetCounter (MDR_TIMER2, 0);
 	TIMER_Cmd(MDR_TIMER2, ENABLE);

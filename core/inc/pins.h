@@ -30,12 +30,13 @@ typedef struct
 //--------------------------------
 typedef struct 
 {
-	TPortPin	Green;		
-	TPortPin 	Red;
-
+	TPortPin	Green_left;		
+	TPortPin 	Green_center;
+	TPortPin 	Green_right;
 }TBiLED;
 
-static TBiLED m_Led = {{LED_GREEN_PORT, LED_GREEN_PIN}, {LED_RED_PORT, LED_RED_PIN}}; 
+static TBiLED m_Led = {{LED_GREEN_LEFT_PORT, LED_GREEN_LEFT_PIN}, {LED_GREEN_CENTER_PORT, 
+												LED_GREEN_CENTER_PIN}, {LED_GREEN_RIGHT_PORT, LED_GREEN_RIGHT_PIN}}; 
 
 // Function prototypes -----------------------------------------------------------------------//
 void SetBiLED( const TBiLED *pBiLed, TBiLEDColor Color ); 
@@ -46,13 +47,14 @@ uint8_t check_pins( uint8_t );
 uint8_t SPIBitMode0(uint8_t );
 
 //Macro--------------------------------------------------------------------------------------//
-#define 	SET_BLACK_LED() 		SetBiLED(&m_Led, LED_BLACK);
+/*#define 	SET_BLACK_LED() 		SetBiLED(&m_Led, LED_BLACK);
 #define 	SET_RED_LED() 			SetBiLED(&m_Led, LED_RED);
 #define 	SET_GREEN_LED() 		SetBiLED(&m_Led, LED_GREEN);
-#define 	SET_YELLOW_LED() 		SetBiLED(&m_Led, LED_YELLOW);
-#define		TOOGLE_GREEN_LED()	((PORT_ReadInputDataBit (LED_GREEN_PORT, LED_GREEN_PIN)) ? (PORT_ResetBits(LED_GREEN_PORT, LED_GREEN_PIN)) : (PORT_SetBits(LED_GREEN_PORT, LED_GREEN_PIN)))
-#define		TOOGLE_RED_LED()		((PORT_ReadInputDataBit (LED_RED_PORT, LED_RED_PIN)) ? (PORT_ResetBits(LED_RED_PORT, LED_RED_PIN)) : (PORT_SetBits(LED_RED_PORT, LED_RED_PIN)))
-
+#define 	SET_YELLOW_LED() 		SetBiLED(&m_Led, LED_YELLOW);*/
+#define		TOOGLE_CENTER_GREEN_LED()	((PORT_ReadInputDataBit (LED_GREEN_CENTER_PORT, LED_GREEN_CENTER_PIN)) ? (PORT_ResetBits(LED_GREEN_CENTER_PORT, LED_GREEN_CENTER_PIN)) : (PORT_SetBits(LED_GREEN_CENTER_PORT, LED_GREEN_CENTER_PIN)))
+//#define		TOOGLE_RED_LED()		((PORT_ReadInputDataBit (LED_RED_PORT, LED_RED_PIN)) ? (PORT_ResetBits(LED_RED_PORT, LED_RED_PIN)) : (PORT_SetBits(LED_RED_PORT, LED_RED_PIN)))
+#define		LEFT_GREEN_LED(x)	((x) ? (PORT_ResetBits(LED_GREEN_LEFT_PORT, LED_GREEN_LEFT_PIN)) : (PORT_SetBits(LED_GREEN_LEFT_PORT, LED_GREEN_LEFT_PIN)))
+#define		RIGHT_GREEN_LED(x)	((x) ? (PORT_ResetBits(LED_GREEN_RIGHT_PORT, LED_GREEN_RIGHT_PIN)) : (PORT_SetBits(LED_GREEN_RIGHT_PORT, LED_GREEN_RIGHT_PIN)))
 #define 	CS(x) 		((x)? (Reset_SPI_GPIO( pins, CS_PIN)) : (Set_SPI_GPIO( pins, CS_PIN)))
 #define 	MOSI(x) 	((x)? (Set_SPI_GPIO( pins, MOSI_PIN)) : (Reset_SPI_GPIO( pins, MOSI_PIN)))
 #define 	CLK(x)  	((x)? (Set_SPI_GPIO( pins, CLK_PIN)) : (Reset_SPI_GPIO( pins, CLK_PIN)))

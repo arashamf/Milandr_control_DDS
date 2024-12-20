@@ -33,7 +33,7 @@ void monosignal_calc (MONO_SIGNAL_t * monosignal, MSG_CTRL_DDS_t * DDS_msgTX)
 	DDS_msgTX->registr_10.inc1 = ((monosignal->increment1&0x0000000007) >> 0);
 	DDS_msgTX->registr_10.inc2 = ((monosignal->increment1&0x000007FFF8) >> 3);
 	DDS_msgTX->registr_10.inc3 = ((monosignal->increment1&0x007FFF80000) >> 19);
-	DDS_msgTX->registr_10.inc4 = ((monosignal->increment1&0x0800000000) >> 28);
+	DDS_msgTX->registr_10.inc4 = ((monosignal->increment1&0x0800000000) >> 35);
 }
 
 

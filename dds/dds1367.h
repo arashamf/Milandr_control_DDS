@@ -15,10 +15,11 @@ extern "C" {
 
 // Function prototypes -----------------------------------------------------------------------//
 void registr_activated (uint8_t );
-void dds_put_msg (uint8_t , uint64_t );
-void dds_init_registr0 (void);
+//void dds_put_msg (uint8_t , uint64_t );
+void dds_init_registr0 (MSG_CTRL_DDS_t *);
 void dds_init_registr10(MONO_SIGNAL_t * );
-void dds_init_registr12(void);
+void dds_init_registr11 (void );
+void dds_init_registr12(MSG_CTRL_DDS_t * );
 void dds_init_registr14 (MONO_SIGNAL_t * );
 void dds_init_registr (uint8_t , uint64_t );
 //Macro--------------------------------------------------------------------------------------//

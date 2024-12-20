@@ -13,19 +13,22 @@
 //Private typedef ----------------------------------------------------------------------//
 
 //Private define -----------------------------------------------------------------------//
+//#define PLL_MULL_VALUE (CPU_CLOCK_VALUE / HSE_Value - 1) //80МГц/8МГц=10
+#define PLL_MULL_VALUE (CPU_CLOCK_VALUE / 10 - 1) //80МГц/8МГц=10
 
 //Private macro ------------------------------------------------------------------------//
 
 //Variables ----------------------------------------------------------------------------//
 
 //Private variables -------------------------------------------------------------------//
-uint8_t i;
+uint8_t i = 0;
 MSG_CTRL_DDS_t msg_DDS = {0};
 MONO_SIGNAL_t set_monosignal = {0};
+uint8_t flag = 0;
 
-//Private function prototypes ----------------------------------------------------------//
-static void CPUClk80MHz_Init(void);
-bool ClockConfigure (void);
+//Private function prototypes ------------------------------------------------------//
+static bool HSI_80MHz_Init(void);
+static bool ClockConfigure (void);
 void InitWatchDog(void);
 void StartUpDelay( void );
 void test_CLK (void);
@@ -51,47 +54,57 @@ int fputc( int c, FILE *f )
 //-------------------------------------------------------------------------------------//
 int main( void )
 {
-	CPUClk80MHz_Init(); //инициализация PLL
+	flag = HSI_80MHz_Init(); //инициализация PLL
+//	flag = ClockConfigure ();
 	SysTick_Init();
 	Func_GPIO_Init();
-	SET_RED_LED() ;
+	LEFT_GREEN_LED(OFF);
+	RIGHT_GREEN_LED(OFF);
 	timers_ini ();
 	
+	#ifdef __USE_DBG
+		DBG_LoLevel_Init(DBG_TX, DBG_TX_CLOCK, DBG_BAUD_RATE);
+	#endif
+	
+	if (flag == 0)
+	{
+		RIGHT_GREEN_LED(ON);
+		while(1) {}
+	}
+	
 	registr_activated (addr10);
-	dds_init_registr0 ();
+	dds_init_registr0 (&msg_DDS);
+	monosignal_init (&set_monosignal);	
+	dds_init_registr (addr10, set_monosignal.increment1);
+	dds_init_registr11 ();
+	dds_init_registr12 (&msg_DDS);
+	delay_us (1000);
 	
 	registr_activated (addr14);
-	dds_init_registr0 ();
+	dds_init_registr0 (&msg_DDS);
+	
+	delay_us (1000);
 	
 	registr_activated (addr18);
-	dds_init_registr0 ();
+	dds_init_registr0 (&msg_DDS);
+	
+	delay_us (1000);
 	
 	registr_activated (addr1C);
-	dds_init_registr0 ();
+	dds_init_registr0 (&msg_DDS);
+	
+	delay_us (1000);
 	
 	#ifdef __USE_DBG
-	DBG_LoLevel_Init(DBG_TX, DBG_TX_CLOCK, DBG_BAUD_RATE);
-	snprintf(DBG_buffer, BUF_SIZE,"%llu_%llu_%llu_%llu_%llu\r\n", set_monosignal.increment1, set_monosignal.increment2,
+/*	snprintf(DBG_buffer, BUF_SIZE,"%llu_%llu_%llu_%llu_%llu\r\n", set_monosignal.increment1, set_monosignal.increment2,
 	set_monosignal.f_clk, set_monosignal.f_out1, set_monosignal.f_out2); 
-	DBG_PutString (DBG_buffer);
+	DBG_PutString (DBG_buffer);*/
 	#endif
 	
-	
-	monosignal_init (&set_monosignal);
-	
-	#ifdef __USE_DBG
-	snprintf(DBG_buffer, BUF_SIZE,"%llu_%llu_%llu_%llu_%llu\r\n", set_monosignal.increment1, set_monosignal.increment2,
-	set_monosignal.f_clk, set_monosignal.f_out1, set_monosignal.f_out2); 
-	DBG_PutString (DBG_buffer);
-	#endif
-	
-	//dds_init_registr12 ();
-	
-/*	dds_init_registr (addr10, set_monosignal.increment1);
-	registr_activated (addr10);
+
 	delay_ms (500);
 	
-	dds_init_registr (addr14, set_monosignal.increment2);
+/*	dds_init_registr (addr14, set_monosignal.increment2);
 	registr_activated (addr14);
 	delay_ms (500);
 	
@@ -103,28 +116,36 @@ int main( void )
 	registr_activated (addr1C);
 	delay_ms (500);*/
 	
-	
-	
+	LEFT_GREEN_LED(OFF);
+	RIGHT_GREEN_LED(OFF);
 	#ifdef __USE_IWDG
 		InitWatchDog(); //инициализация сторожевого таймера
 	#endif
-	
+
 	
 	while(1)
 	{
 
-		dds_init_registr (addr10, set_monosignal.increment1);
+		/*dds_init_registr (addr10, set_monosignal.increment1);
 		registr_activated (addr10);
-//		delay_ms (100);
 		delay_us (7143);
 
 		dds_init_registr (addr10, set_monosignal.increment2);
 		registr_activated (addr10);
-//		delay_ms (100);
-		delay_us (7143);
+		delay_us (7143);*/
+
+		TOOGLE_CENTER_GREEN_LED();
 		
-		TOOGLE_RED_LED();
-		TOOGLE_GREEN_LED();
+		//while
+		for (i = 0; i < 200; i++)
+		{
+			delay_us (1000);
+		}
+		
+		#ifdef __USE_DBG
+		snprintf(DBG_buffer, BUF_SIZE,"continue\r\n"); 
+		DBG_PutString (DBG_buffer);
+		#endif
 		
 		#ifdef __USE_IWDG	
 			IWDG_ReloadCounter(); //перезагрузка сторожевого таймера
@@ -133,59 +154,58 @@ int main( void )
 }
 
 //-------------------------------------------------------------------------------------//
-static void CPUClk80MHz_Init(void)
+static bool HSI_80MHz_Init(void)
 {
-	uint8_t n = 0;
+	uint32_t cntr = 0;
 	ErrorStatus ret;
 	
-  RST_CLK_HSEconfig(RST_CLK_HSE_ON); // Enable HSE 
-  while ( n < HSE_ON_ATTEMPTS ) //ожидание готовности HSE
+/*  RST_CLK_HSEconfig(RST_CLK_HSE_ON); // Enable HSE 
+  while ( cntr < HSE_ON_ATTEMPTS ) //ожидание готовности HSE
   {
 		ret = RST_CLK_HSEstatus(); 		
 		if ( ret == SUCCESS ) 
-			{break;}	
+		{	break;	}	
 		else
-			{n++;}
+		{	cntr++;	}
   }
 	if ( ret != SUCCESS ) 
-		{SET_RED_LED();}
+	{	
+		//SET_RED_LED();			
+		return false;
+	}*/
 
-  /* CPU_C1_SEL = HSE */
-  RST_CLK_CPU_PLLconfig(RST_CLK_CPU_PLLsrcHSEdiv1, RST_CLK_CPU_PLLmul10); //Select HSE clock as CPU_PLL input clock source & set PLL multiplier
+  /* CPU_C1_SEL = HSI */
+  RST_CLK_CPU_PLLconfig(RST_CLK_CPU_PLLsrcHSIdiv1 , RST_CLK_CPU_PLLmul8 ); //Select HSI clock as CPU_PLL input clock source & set PLL multiplier
  
 	RST_CLK_CPU_PLLcmd(ENABLE); //enable CPU_PLL
-  while (RST_CLK_CPU_PLLstatus() != SUCCESS) {}; //ожидание готовности CPU_PLL 
-
+  while ((RST_CLK_CPU_PLLstatus() != SUCCESS )&& (cntr++ < 0x40000)) {}; //ожидание готовности CPU_PLL 
+  if(RST_CLK_CPU_PLLstatus() != SUCCESS) //получение статуса CPU_PLL 
+	{	return false;	}
+		
 	RST_CLK_PCLKcmd(RST_CLK_PCLK_EEPROM, ENABLE); 	// Enables the RST_CLK_PCLK_EEPROM 
-
   EEPROM_SetLatency(EEPROM_Latency_3);   // Sets the code latency value 
 
+	RST_CLK_CPU_PLLuse(ENABLE);   								// CPU_C2_SEL = PLL 
   RST_CLK_CPUclkPrescaler(RST_CLK_CPUclkDIV1);   // CPU_C3_SEL = CPU_C2_SEL 
-
-  RST_CLK_CPU_PLLuse(ENABLE);   // CPU_C2_SEL = PLL 
-
   RST_CLK_CPUclkSelection(RST_CLK_CPUclkCPU_C3);   // HCLK_SEL = CPU_C3_SEL 
+	return true;
 }
 
 //-------------------------------------------------------------------------------------//
-bool ClockConfigure (void)
+static bool ClockConfigure (void)
 {
   uint32_t cntr = 0;
 
-	cntr = 0;
 	RST_CLK_HSEconfig(RST_CLK_HSE_ON); //switch on HSE clock generator
   while(RST_CLK_HSEstatus() != SUCCESS && cntr++ < 0x40000) {};//ожидание готовности генератора HSE
 
   if(RST_CLK_HSEstatus() != SUCCESS) //получение статуса генератора HSE
 	{	return false;	}
 	
-	#define PLL_MULL_VALUE (CPU_CLOCK_VALUE / HSE_Value - 1) //80МГц/8МГц=10
 	RST_CLK_CPU_PLLconfig (RST_CLK_CPU_PLLsrcHSEdiv1, PLL_MULL_VALUE ); //Select HSE clock as CPU_PLL input clock source & set PLL multiplier
 
-	RST_CLK_CPU_PLLcmd(ENABLE); //enable CPU_PLL
-	
+	RST_CLK_CPU_PLLcmd(ENABLE); //enable CPU_PLL	
 	while(RST_CLK_CPU_PLLstatus() != SUCCESS && cntr++ < 0x40000) {};//ожидание готовности CPU_PLL 
-
   if(RST_CLK_CPU_PLLstatus() != SUCCESS) //получение статуса CPU_PLL 
 	{	return false;	}
 
