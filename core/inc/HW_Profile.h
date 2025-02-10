@@ -23,13 +23,13 @@
 
 //------------------------------------------------------
 #define		SPI_SCK_PORT					MDR_PORTA
-#define		SPI_SCK_PIN						PORT_Pin_2
+#define		SPI_SCK_PIN						PORT_Pin_0
 
 #define		SPI_MOSI_PORT					MDR_PORTA
 #define		SPI_MOSI_PIN					PORT_Pin_5
 
 #define		SPI_CS_PORT						MDR_PORTA
-#define		SPI_CS_PIN						PORT_Pin_6
+#define		SPI_CS_PIN						PORT_Pin_4
 
 #define		DDS_SE_PORT						MDR_PORTB
 #define		DDS_SE_PIN						PORT_Pin_0

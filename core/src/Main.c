@@ -73,48 +73,23 @@ int main( void )
 	}
 	
 	registr_activated (addr10);
-	dds_init_registr0 (&msg_DDS);
+	reg0_data_init (&msg_DDS);
+	dds_init_registr (addr0, msg_DDS.RAW_data);
 	monosignal_init (&set_monosignal);	
 	dds_init_registr (addr10, set_monosignal.increment1);
-	dds_init_registr11 ();
-	dds_init_registr12 (&msg_DDS);
+	reg11_data_init (&msg_DDS);
+	dds_init_registr (addr11, msg_DDS.RAW_data);
+	reg12_data_init (&msg_DDS);
+	dds_init_registr (addr12, msg_DDS.RAW_data);
 	delay_us (1000);
 	
 	registr_activated (addr14);
-	dds_init_registr0 (&msg_DDS);
-	
+	dds_init_registr (addr10, set_monosignal.increment2);	
+	reg11_data_init (&msg_DDS);
+	dds_init_registr (addr15, msg_DDS.RAW_data);
+	reg12_data_init (&msg_DDS);
+	dds_init_registr (addr16, msg_DDS.RAW_data);
 	delay_us (1000);
-	
-	registr_activated (addr18);
-	dds_init_registr0 (&msg_DDS);
-	
-	delay_us (1000);
-	
-	registr_activated (addr1C);
-	dds_init_registr0 (&msg_DDS);
-	
-	delay_us (1000);
-	
-	#ifdef __USE_DBG
-/*	snprintf(DBG_buffer, BUF_SIZE,"%llu_%llu_%llu_%llu_%llu\r\n", set_monosignal.increment1, set_monosignal.increment2,
-	set_monosignal.f_clk, set_monosignal.f_out1, set_monosignal.f_out2); 
-	DBG_PutString (DBG_buffer);*/
-	#endif
-	
-
-	delay_ms (500);
-	
-/*	dds_init_registr (addr14, set_monosignal.increment2);
-	registr_activated (addr14);
-	delay_ms (500);
-	
-	dds_init_registr (addr18, set_monosignal.increment3);
-	registr_activated (addr18);
-	delay_ms (500);
-	
-	dds_init_registr (addr1C, set_monosignal.increment4);
-	registr_activated (addr1C);
-	delay_ms (500);*/
 	
 	LEFT_GREEN_LED(OFF);
 	RIGHT_GREEN_LED(OFF);
@@ -126,26 +101,18 @@ int main( void )
 	while(1)
 	{
 
-		/*dds_init_registr (addr10, set_monosignal.increment1);
+		dds_init_registr (addr10, set_monosignal.increment1);
 		registr_activated (addr10);
 		delay_us (7143);
 
 		dds_init_registr (addr10, set_monosignal.increment2);
 		registr_activated (addr10);
-		delay_us (7143);*/
+		delay_us (7143);
 
-		TOOGLE_CENTER_GREEN_LED();
-		
-		//while
-		for (i = 0; i < 200; i++)
-		{
-			delay_us (1000);
-		}
-		
-		#ifdef __USE_DBG
-		snprintf(DBG_buffer, BUF_SIZE,"continue\r\n"); 
-		DBG_PutString (DBG_buffer);
-		#endif
+	/*	dds_init_registr (addr14, set_monosignal.increment1);
+		registr_activated (addr14);
+		delay_us (7143);*/
+	//	TOOGLE_CENTER_GREEN_LED();
 		
 		#ifdef __USE_IWDG	
 			IWDG_ReloadCounter(); //перезагрузка сторожевого таймера

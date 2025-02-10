@@ -8,7 +8,7 @@
 #define 		DIV36 		(0x1000000000)
 #define 		FOUT1			(5000000UL)
 #define 		FOUT2			(10000000UL)
-#define 		FCLK			(60000000UL)
+#define 		FCLK			(30000000UL)
 #define 		FSC				(64UL)
 // Exported types -----------------------------------------------------------------//
 #pragma anon_unions(1)

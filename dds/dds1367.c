@@ -63,23 +63,6 @@ void registr_activated (uint8_t number_registr)
 }
 
 //------------------------------------------------------------------------------------------//
-void dds_init_registr0 (MSG_CTRL_DDS_t * ptr)
-{
-	ptr-> RAW_data = 0;
-	ptr->registr_common.enable_dithering = OFF;
-	ptr->registr_common.REF_on = ON;
-	ptr->registr_common.DAC_cotrol_lsb = (FSC&0x0F);
-	ptr->registr_common.DAC_cotrol_msb = ((FSC&0x70)>>4);
-	
-	dds_put_msg (addr0, ptr->RAW_data);
-	
-	#ifdef __USE_DBG
-	snprintf(DBG_buffer, BUF_SIZE,"RAW=%llx\r\n", ptr->RAW_data); 
-	DBG_PutString (DBG_buffer);
-	#endif
-}
-
-//------------------------------------------------------------------------------------------//
 void dds_init_registr (uint8_t number_registr, uint64_t tmp)
 {
 	dds_put_msg (number_registr, tmp);
@@ -147,46 +130,43 @@ static uint8_t SPI_TX_Mode0_LSB(uint64_t data_byte, uint8_t number_bit)
 	return data_byte;
 }
 
+//------------------------------------------------------------------------------------------//
+void reg0_data_init (MSG_CTRL_DDS_t * ptr)
+{
+	ptr-> RAW_data = 0;
+	ptr->registr_common.enable_dithering = OFF;
+	ptr->registr_common.REF_on = ON;
+	ptr->registr_common.DAC_cotrol_lsb = (FSC&0x0F);
+	ptr->registr_common.DAC_cotrol_msb = ((FSC&0x70)>>4);
+	
+	//dds_put_msg (addr0, ptr->RAW_data);
+	
+	#ifdef __USE_DBG
+	snprintf(DBG_buffer, BUF_SIZE,"RAW=%llx\r\n", ptr->RAW_data); 
+	DBG_PutString (DBG_buffer);
+	#endif
+}
+
 
 //------------------------------------------------------------------------------------------//
 void dds_init_registr10 (MONO_SIGNAL_t * ptr)
 {
 	uint64_t tmp = ptr->increment1;
-	//tmp = 0xAAA800000;
 	dds_put_msg (addr10, tmp);
 }
 
 //------------------------------------------------------------------------------------------//
-void dds_init_registr11 (void)
+void reg11_data_init (MSG_CTRL_DDS_t * ptr)
 {
-	uint64_t tmp = 0;
-	dds_put_msg (addr11, tmp);
-	
-/*	registr_activated (addr14);
-	dds_put_msg (addr15, tmp);
-	
-	registr_activated (addr18);
-	dds_put_msg (addr19, tmp);
-	
-	registr_activated (addr1C);
-	dds_put_msg (addr1D, tmp);*/
+	 ptr->RAW_data = 0;
 }
 
 //------------------------------------------------------------------------------------------//
-void dds_init_registr12 (MSG_CTRL_DDS_t * ptr)
+void reg12_data_init (MSG_CTRL_DDS_t * ptr)
 {
 	ptr->RAW_data = 0;
 	ptr->registr_12.direct = OFF;
-	dds_put_msg (addr12, ptr-> RAW_data);
 	
-/*	registr_activated (addr14);
-	dds_put_msg (addr16, tmp);
-	
-	registr_activated (addr18);
-	dds_put_msg (addr1A, tmp);
-	
-	registr_activated (addr1C);
-	dds_put_msg (addr1E, tmp);*/
 }
 
 //------------------------------------------------------------------------------------------//

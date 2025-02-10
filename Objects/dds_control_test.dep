@@ -1,7 +1,7 @@
 Dependencies for Project 'dds_control', Target 'test': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (.\core\src\Main.c)(0x67651980)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\libraries\CMSIS\CM3\CoreSupport -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\inc -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\startup\arm -I .\libraries\MDR32F9Qx_StdPeriph_Driver\inc -I .\libraries\PT -I .\core\src -I .\core\inc -I .\Time64 -I .\dds-I.\RTE\Device\MDR32F9Q2I-I.\RTE\_test-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F9Q2I\inc-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
-I (.\core\inc\main.h)(0x67612764)
+F (.\core\src\Main.c)(0x67A9F50F)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\libraries\CMSIS\CM3\CoreSupport -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\inc -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\startup\arm -I .\libraries\MDR32F9Qx_StdPeriph_Driver\inc -I .\libraries\PT -I .\core\src -I .\core\inc -I .\Time64 -I .\dds-I.\RTE\Device\MDR32F9Q2I-I.\RTE\_test-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F9Q2I\inc-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (.\core\inc\main.h)(0x67A9EDF0)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602569CE)
@@ -25,14 +25,14 @@ I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_uart.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_timer.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_iwdg.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_bkp.h)(0x542BDAA3)
-I (.\core\inc\HW_Profile.h)(0x676173B9)
+I (.\core\inc\HW_Profile.h)(0x67A9EEFC)
 I (.\core\inc\systick.h)(0x6614FDDB)
 I (.\core\inc\pins.h)(0x67614C27)
-I (.\core\inc\typedef.h)(0x67652599)
+I (.\core\inc\typedef.h)(0x67A9EDD1)
 I (.\core\inc\timers.h)(0x661CCBA2)
 I (.\core\inc\uart_func.h)(0x662780DD)
 I (.\core\inc\ring_buffer.h)(0x649EC9EF)
-I (.\dds\dds1367.h)(0x67651756)
+I (.\dds\dds1367.h)(0x67A9F282)
 I (.\dds\dds_math.h)(0x6627898B)
 F (.\core\src\MDR32F9Qx_it.c)(0x66169003)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\libraries\CMSIS\CM3\CoreSupport -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\inc -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\startup\arm -I .\libraries\MDR32F9Qx_StdPeriph_Driver\inc -I .\libraries\PT -I .\core\src -I .\core\inc -I .\Time64 -I .\dds-I.\RTE\Device\MDR32F9Q2I-I.\RTE\_test-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F9Q2I\inc-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o .\objects\mdr32f9qx_it.o --omf_browse .\objects\mdr32f9qx_it.crf --depend .\objects\mdr32f9qx_it.d)
 I (.\core\inc\MDR32F9Qx_it.h)(0x5267E615)
@@ -45,7 +45,7 @@ I (.\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\startup\arm\system_MDR32F9Qx.h)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_timer.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_lib.h)(0x64D0A1AE)
 I (.\core\inc\uart_func.h)(0x662780DD)
-I (.\core\inc\main.h)(0x67612764)
+I (.\core\inc\main.h)(0x67A9EDF0)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602569CE)
@@ -61,7 +61,7 @@ I (.\core\inc\MDR32F9Qx_can_helper.h)(0x64AE63A4)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_uart.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_iwdg.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_bkp.h)(0x542BDAA3)
-I (.\core\inc\typedef.h)(0x67652599)
+I (.\core\inc\typedef.h)(0x67A9EDD1)
 I (.\core\inc\ring_buffer.h)(0x649EC9EF)
 F (.\core\src\Retarget.c)(0x610970EC)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\libraries\CMSIS\CM3\CoreSupport -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\inc -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\startup\arm -I .\libraries\MDR32F9Qx_StdPeriph_Driver\inc -I .\libraries\PT -I .\core\src -I .\core\inc -I .\Time64 -I .\dds-I.\RTE\Device\MDR32F9Q2I-I.\RTE\_test-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F9Q2I\inc-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o .\objects\retarget.o --omf_browse .\objects\retarget.crf --depend .\objects\retarget.d)
 F (.\core\src\ring_buffer.c)(0x649ED022)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\libraries\CMSIS\CM3\CoreSupport -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\inc -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\startup\arm -I .\libraries\MDR32F9Qx_StdPeriph_Driver\inc -I .\libraries\PT -I .\core\src -I .\core\inc -I .\Time64 -I .\dds-I.\RTE\Device\MDR32F9Q2I-I.\RTE\_test-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F9Q2I\inc-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o .\objects\ring_buffer.o --omf_browse .\objects\ring_buffer.crf --depend .\objects\ring_buffer.d)
@@ -76,7 +76,7 @@ I (.\libraries\CMSIS\CM3\CoreSupport\core_cmInstr.h)(0x542BCE6E)
 I (.\libraries\CMSIS\CM3\CoreSupport\core_cmFunc.h)(0x542BCE6E)
 I (.\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\startup\arm\system_MDR32F9Qx.h)(0x542BDAA3)
 I (.\core\inc\uart_func.h)(0x662780DD)
-I (.\core\inc\main.h)(0x67612764)
+I (.\core\inc\main.h)(0x67A9EDF0)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602569CE)
@@ -91,10 +91,10 @@ I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_uart.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_timer.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_iwdg.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_bkp.h)(0x542BDAA3)
-I (.\core\inc\typedef.h)(0x67652599)
+I (.\core\inc\typedef.h)(0x67A9EDD1)
 F (.\core\src\pins.c)(0x67616FFC)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\libraries\CMSIS\CM3\CoreSupport -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\inc -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\startup\arm -I .\libraries\MDR32F9Qx_StdPeriph_Driver\inc -I .\libraries\PT -I .\core\src -I .\core\inc -I .\Time64 -I .\dds-I.\RTE\Device\MDR32F9Q2I-I.\RTE\_test-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F9Q2I\inc-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o .\objects\pins.o --omf_browse .\objects\pins.crf --depend .\objects\pins.d)
 I (.\core\inc\pins.h)(0x67614C27)
-I (.\core\inc\main.h)(0x67612764)
+I (.\core\inc\main.h)(0x67A9EDF0)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602569CE)
@@ -118,11 +118,11 @@ I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_uart.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_timer.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_iwdg.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_bkp.h)(0x542BDAA3)
-I (.\core\inc\HW_Profile.h)(0x676173B9)
+I (.\core\inc\HW_Profile.h)(0x67A9EEFC)
 I (.\core\inc\systick.h)(0x6614FDDB)
 I (.\core\inc\timers.h)(0x661CCBA2)
 F (.\core\src\uart_func.c)(0x6620FB93)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\libraries\CMSIS\CM3\CoreSupport -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\inc -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\startup\arm -I .\libraries\MDR32F9Qx_StdPeriph_Driver\inc -I .\libraries\PT -I .\core\src -I .\core\inc -I .\Time64 -I .\dds-I.\RTE\Device\MDR32F9Q2I-I.\RTE\_test-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F9Q2I\inc-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o .\objects\uart_func.o --omf_browse .\objects\uart_func.crf --depend .\objects\uart_func.d)
-I (.\core\inc\main.h)(0x67612764)
+I (.\core\inc\main.h)(0x67A9EDF0)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602569CE)
@@ -146,17 +146,17 @@ I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_uart.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_timer.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_iwdg.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_bkp.h)(0x542BDAA3)
-I (.\core\inc\typedef.h)(0x67652599)
-I (.\core\inc\HW_Profile.h)(0x676173B9)
+I (.\core\inc\typedef.h)(0x67A9EDD1)
+I (.\core\inc\HW_Profile.h)(0x67A9EEFC)
 I (.\core\inc\ring_buffer.h)(0x649EC9EF)
 I (.\core\inc\uart_func.h)(0x662780DD)
-F (.\core\inc\HW_Profile.h)(0x676173B9)()
+F (.\core\inc\HW_Profile.h)(0x67A9EEFC)()
 F (.\core\inc\protocol.h)(0x64ABE8EA)()
 F (.\core\inc\Retarget.h)(0x610ACF37)()
-F (.\core\inc\typedef.h)(0x67652599)()
+F (.\core\inc\typedef.h)(0x67A9EDD1)()
 F (.\core\src\systick.c)(0x6614FDC4)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\libraries\CMSIS\CM3\CoreSupport -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\inc -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\startup\arm -I .\libraries\MDR32F9Qx_StdPeriph_Driver\inc -I .\libraries\PT -I .\core\src -I .\core\inc -I .\Time64 -I .\dds-I.\RTE\Device\MDR32F9Q2I-I.\RTE\_test-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F9Q2I\inc-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o .\objects\systick.o --omf_browse .\objects\systick.crf --depend .\objects\systick.d)
 I (.\core\inc\systick.h)(0x6614FDDB)
-I (.\core\inc\main.h)(0x67612764)
+I (.\core\inc\main.h)(0x67A9EDF0)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602569CE)
@@ -180,7 +180,7 @@ I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_uart.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_timer.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_iwdg.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_bkp.h)(0x542BDAA3)
-I (.\core\inc\HW_Profile.h)(0x676173B9)
+I (.\core\inc\HW_Profile.h)(0x67A9EEFC)
 F (.\core\src\MDR32F9Qx_can_helper.c)(0x5DC28CC5)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\libraries\CMSIS\CM3\CoreSupport -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\inc -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\startup\arm -I .\libraries\MDR32F9Qx_StdPeriph_Driver\inc -I .\libraries\PT -I .\core\src -I .\core\inc -I .\Time64 -I .\dds-I.\RTE\Device\MDR32F9Q2I-I.\RTE\_test-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F9Q2I\inc-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o .\objects\mdr32f9qx_can_helper.o --omf_browse .\objects\mdr32f9qx_can_helper.crf --depend .\objects\mdr32f9qx_can_helper.d)
 I (.\core\inc\MDR32F9Qx_config.h)(0x62EBFC36)
 I (.\core\inc\MDR32F9Qx_board.h)(0x62CC55F3)
@@ -194,7 +194,7 @@ I (.\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\startup\arm\system_MDR32F9Qx.h)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_can.h)(0x542BDAA3)
 I (.\core\inc\MDR32F9Qx_can_helper.h)(0x64AE63A4)
 F (.\core\src\adc.c)(0x661CCDE1)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\libraries\CMSIS\CM3\CoreSupport -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\inc -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\startup\arm -I .\libraries\MDR32F9Qx_StdPeriph_Driver\inc -I .\libraries\PT -I .\core\src -I .\core\inc -I .\Time64 -I .\dds-I.\RTE\Device\MDR32F9Q2I-I.\RTE\_test-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F9Q2I\inc-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o .\objects\adc.o --omf_browse .\objects\adc.crf --depend .\objects\adc.d)
-I (.\core\inc\main.h)(0x67612764)
+I (.\core\inc\main.h)(0x67A9EDF0)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602569CE)
@@ -219,10 +219,10 @@ I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_timer.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_iwdg.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_bkp.h)(0x542BDAA3)
 I (.\core\inc\adc.h)(0x650D40F7)
-I (.\core\inc\typedef.h)(0x67652599)
-I (.\core\inc\HW_Profile.h)(0x676173B9)
+I (.\core\inc\typedef.h)(0x67A9EDD1)
+I (.\core\inc\HW_Profile.h)(0x67A9EEFC)
 F (.\core\src\timers.c)(0x676157A6)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\libraries\CMSIS\CM3\CoreSupport -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\inc -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\startup\arm -I .\libraries\MDR32F9Qx_StdPeriph_Driver\inc -I .\libraries\PT -I .\core\src -I .\core\inc -I .\Time64 -I .\dds-I.\RTE\Device\MDR32F9Q2I-I.\RTE\_test-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F9Q2I\inc-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o .\objects\timers.o --omf_browse .\objects\timers.crf --depend .\objects\timers.d)
-I (.\core\inc\main.h)(0x67612764)
+I (.\core\inc\main.h)(0x67A9EDF0)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602569CE)
@@ -516,9 +516,9 @@ I (C:\Keil_v5\ARM\ARMCC\include\errno.h)(0x602569C6)
 I (Time64\time64.h)(0x5C07EF8F)
 I (Time64\time64_config.h)(0x5C07EF93)
 I (Time64\time64_limits.h)(0x5C07F001)
-F (.\dds\dds1367.c)(0x676525AE)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\libraries\CMSIS\CM3\CoreSupport -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\inc -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\startup\arm -I .\libraries\MDR32F9Qx_StdPeriph_Driver\inc -I .\libraries\PT -I .\core\src -I .\core\inc -I .\Time64 -I .\dds-I.\RTE\Device\MDR32F9Q2I-I.\RTE\_test-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F9Q2I\inc-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o .\objects\dds1367.o --omf_browse .\objects\dds1367.crf --depend .\objects\dds1367.d)
-I (dds\dds1367.h)(0x67651756)
-I (.\core\inc\main.h)(0x67612764)
+F (.\dds\dds1367.c)(0x67A9F25E)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\libraries\CMSIS\CM3\CoreSupport -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\inc -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\startup\arm -I .\libraries\MDR32F9Qx_StdPeriph_Driver\inc -I .\libraries\PT -I .\core\src -I .\core\inc -I .\Time64 -I .\dds-I.\RTE\Device\MDR32F9Q2I-I.\RTE\_test-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F9Q2I\inc-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o .\objects\dds1367.o --omf_browse .\objects\dds1367.crf --depend .\objects\dds1367.d)
+I (dds\dds1367.h)(0x67A9F282)
+I (.\core\inc\main.h)(0x67A9EDF0)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602569CE)
@@ -542,16 +542,16 @@ I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_uart.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_timer.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_iwdg.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_bkp.h)(0x542BDAA3)
-I (.\core\inc\typedef.h)(0x67652599)
+I (.\core\inc\typedef.h)(0x67A9EDD1)
 I (.\core\inc\systick.h)(0x6614FDDB)
 I (.\core\inc\timers.h)(0x661CCBA2)
 I (.\core\inc\uart_func.h)(0x662780DD)
 I (.\core\inc\ring_buffer.h)(0x649EC9EF)
 I (.\core\inc\pins.h)(0x67614C27)
-I (.\core\inc\HW_Profile.h)(0x676173B9)
+I (.\core\inc\HW_Profile.h)(0x67A9EEFC)
 F (.\dds\dds_math.c)(0x6763DA39)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\libraries\CMSIS\CM3\CoreSupport -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\inc -I .\libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\startup\arm -I .\libraries\MDR32F9Qx_StdPeriph_Driver\inc -I .\libraries\PT -I .\core\src -I .\core\inc -I .\Time64 -I .\dds-I.\RTE\Device\MDR32F9Q2I-I.\RTE\_test-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3-IC:\Users\ASkupov.CHASPROM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.1\Libraries\CMSIS\MDR32FxQI\DeviceSupport\MDR32F9Q2I\inc-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o .\objects\dds_math.o --omf_browse .\objects\dds_math.crf --depend .\objects\dds_math.d)
 I (dds\dds_math.h)(0x6627898B)
-I (.\core\inc\main.h)(0x67612764)
+I (.\core\inc\main.h)(0x67A9EDF0)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602569C4)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602569CE)
@@ -575,7 +575,7 @@ I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_uart.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_timer.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_iwdg.h)(0x542BDAA3)
 I (.\libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_bkp.h)(0x542BDAA3)
-I (.\core\inc\typedef.h)(0x67652599)
+I (.\core\inc\typedef.h)(0x67A9EDD1)
 I (.\core\inc\uart_func.h)(0x662780DD)
 I (.\core\inc\ring_buffer.h)(0x649EC9EF)
 F (RTE\Device\MDR32F9Q2I\MDR32F9Q2I.sct)(0x624C4A6A)()
