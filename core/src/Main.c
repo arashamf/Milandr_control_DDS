@@ -72,11 +72,12 @@ int main( void )
 		while(1) {}
 	}
 	
+	monosignal_init (&set_monosignal);	
+	
 	registr_activated (addr10);
 	reg0_data_init (&msg_DDS);
 	dds_init_registr (addr0, msg_DDS.RAW_data);
-	monosignal_init (&set_monosignal);	
-	dds_init_registr (addr10, set_monosignal.increment1);
+	dds_init_registr (addr10, set_monosignal.increment2);
 	reg11_data_init (&msg_DDS);
 	dds_init_registr (addr11, msg_DDS.RAW_data);
 	reg12_data_init (&msg_DDS);
@@ -84,12 +85,34 @@ int main( void )
 	delay_us (1000);
 	
 	registr_activated (addr14);
-	dds_init_registr (addr10, set_monosignal.increment2);	
+//	reg0_data_init (&msg_DDS);
+	//dds_init_registr (addr0, msg_DDS.RAW_data);
+	dds_init_registr (addr14, set_monosignal.increment1);	
 	reg11_data_init (&msg_DDS);
 	dds_init_registr (addr15, msg_DDS.RAW_data);
 	reg12_data_init (&msg_DDS);
 	dds_init_registr (addr16, msg_DDS.RAW_data);
 	delay_us (1000);
+	
+	/*registr_activated (addr18);
+	reg0_data_init (&msg_DDS);
+	dds_init_registr (addr0, msg_DDS.RAW_data);
+	dds_init_registr (addr18, set_monosignal.increment1);	
+	reg11_data_init (&msg_DDS);
+	dds_init_registr (addr19, msg_DDS.RAW_data);
+	reg12_data_init (&msg_DDS);
+	dds_init_registr (addr1A, msg_DDS.RAW_data);
+	delay_us (1000);
+	
+	registr_activated (addr1C);
+	reg0_data_init (&msg_DDS);
+	dds_init_registr (addr0, msg_DDS.RAW_data);
+	dds_init_registr (addr1C, set_monosignal.increment2);	
+	reg11_data_init (&msg_DDS);
+	dds_init_registr (addr1D, msg_DDS.RAW_data);
+	reg12_data_init (&msg_DDS);
+	dds_init_registr (addr1E, msg_DDS.RAW_data);
+	delay_us (1000);*/
 	
 	LEFT_GREEN_LED(OFF);
 	RIGHT_GREEN_LED(OFF);
@@ -100,18 +123,13 @@ int main( void )
 	
 	while(1)
 	{
-
-		dds_init_registr (addr10, set_monosignal.increment1);
 		registr_activated (addr10);
-		delay_us (7143);
-
 		dds_init_registr (addr10, set_monosignal.increment2);
-		registr_activated (addr10);
 		delay_us (7143);
 
-	/*	dds_init_registr (addr14, set_monosignal.increment1);
-		registr_activated (addr14);
-		delay_us (7143);*/
+		//registr_activated (addr14);
+	//	delay_us (7143);
+		
 	//	TOOGLE_CENTER_GREEN_LED();
 		
 		#ifdef __USE_IWDG	

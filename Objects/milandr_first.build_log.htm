@@ -28,17 +28,33 @@ Project File Date:  04/23/2024
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'test'
 compiling Main.c...
-core\src\Main.c(127): warning:  #177-D: variable "ret"  was declared but never referenced
+core\src\Main.c(145): warning:  #177-D: variable "ret"  was declared but never referenced
   	ErrorStatus ret;
-core\src\Main.c(162): warning:  #177-D: function "ClockConfigure"  was declared but never referenced
+core\src\Main.c(180): warning:  #177-D: function "ClockConfigure"  was declared but never referenced
   static bool ClockConfigure (void)
 core\src\Main.c: 2 warnings, 0 errors
+compiling ring_buffer.c...
+compiling MDR32F9Qx_it.c...
+compiling uart_func.c...
+core\src\uart_func.c(8): warning:  #177-D: function "UART_LoLevel_Init"  was declared but never referenced
+  static void UART_LoLevel_Init(MDR_UART_TypeDef* , uint32_t , uint32_t , UartMode );
+core\src\uart_func.c(56): warning:  #177-D: function "UART_InitIRQ"  was declared but never referenced
+  static void UART_InitIRQ(IRQn_Type IRQn, uint32_t priority)
+core\src\uart_func.c(64): warning:  #177-D: function "UARTSetBaud"  was declared but never referenced
+  static void UARTSetBaud(MDR_UART_TypeDef* UARTx, uint32_t baudRate, uint32_t freqCPU)
+core\src\uart_func.c: 3 warnings, 0 errors
+compiling adc.c...
+compiling dds1367.c...
+dds\dds1367.c(113): warning:  #177-D: function "SPI_TX_Mode0_LSB"  was declared but never referenced
+  static uint8_t SPI_TX_Mode0_LSB(uint64_t data_byte, uint8_t number_bit)
+dds\dds1367.c: 1 warning, 0 errors
+compiling dds_math.c...
 linking...
-Program Size: Code=4884 RO-data=280 RW-data=72 ZI-data=1736  
+Program Size: Code=4860 RO-data=280 RW-data=72 ZI-data=1736  
 FromELF: creating hex file...
 After Build - User command #1: cmd /c copy Obj\*.hex .
 Системе не удается найти указанный путь.
-".\Objects\milandr_first.axf" - 0 Error(s), 2 Warning(s).
+".\Objects\milandr_first.axf" - 0 Error(s), 6 Warning(s).
 
 <h2>Software Packages used:</h2>
 

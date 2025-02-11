@@ -7,9 +7,9 @@
 // Defines-----------------------------------------------------------------//
 #define 		DIV36 		(0x1000000000)
 #define 		FOUT1			(5000000UL)
-#define 		FOUT2			(10000000UL)
+#define 		FOUT2			(5000000UL)
 #define 		FCLK			(30000000UL)
-#define 		FSC				(64UL)
+#define 		FSC				(100UL)
 // Exported types -----------------------------------------------------------------//
 #pragma anon_unions(1)
 #pragma pack(1) 
@@ -17,8 +17,19 @@
 typedef enum {UART_RX_MODE = 0, UART_TX_MODE = 1} UartMode; //ğåæèì ÓÀĞÒà
 
 //---------------------------------------------------------------------------------//
-typedef enum {	addr0 = 0, addr10 = 0x10, addr11, addr12,	addr14, addr15, addr16, 
-addr18, addr19, addr1A, addr1C, addr1D, addr1E}  number_registr;
+typedef enum {	addr0 = 0, 
+								addr10 = 0x10, 
+								addr11, 
+								addr12,	
+								addr14=0x14, 
+								addr15, 
+								addr16, 
+								addr18=0x18,
+								addr19, 
+								addr1A, 
+								addr1C=0x1C,
+								addr1D, 
+								addr1E}  number_registr;
 
 //---------------------------------------------------------------------------------//
 #pragma pack(1) 

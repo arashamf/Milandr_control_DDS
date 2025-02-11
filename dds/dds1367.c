@@ -57,7 +57,7 @@ void registr_activated (uint8_t number_registr)
 	}
 	SE(ON);
 	//delay_us (2);	
-	for (count = 0; count < 50; count++)
+	for (count = 0; count < 10; count++)
 	{}
 	SE(OFF);
 }
